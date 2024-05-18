@@ -1,4 +1,4 @@
-package com.example.apiavatart2.ui
+package com.example.apiavatart2.data.remote
 
 import android.content.Intent
 import android.view.LayoutInflater
@@ -42,6 +42,14 @@ class AvatarAdapter(private val avatars: List<AvatarDto>) : RecyclerView.Adapter
                     putExtra("name", avatar.name)
                     putExtra("photoUrl", avatar.photoUrl)
                     putExtra("affiliation", avatar.affiliation)
+                    putExtra("gender", avatar.gender)
+                    putExtra("hair", avatar.hair)
+                    putExtra("weapon", avatar.weapon)
+                    putExtra("profession", avatar.profession)
+                    putExtra("position", avatar.position)
+                    putExtra("first", avatar.first)
+                    putStringArrayListExtra("allies", ArrayList(avatar.allies))
+                    putStringArrayListExtra("enemies", ArrayList(avatar.enemies))
                 }
                 context.startActivity(intent)
             }

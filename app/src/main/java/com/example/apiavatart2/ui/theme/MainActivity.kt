@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.apiavatart2.data.remote.AvatarApi
 import com.example.apiavatart2.data.remote.model.AvatarDto
 import com.example.apiavatart2.databinding.ActivityMainBinding
-import com.example.apiavatart2.ui.AvatarAdapter
+import com.example.apiavatart2.data.remote.AvatarAdapter
 import com.example.apiavatart2.util.Constants
 import retrofit2.Call
 import retrofit2.Callback
