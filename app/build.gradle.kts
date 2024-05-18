@@ -78,9 +78,8 @@ dependencies {
     //Imágenes con bordes redondeados
     implementation(libs.roundedimageview)
     implementation(libs.androidx.recyclerview)
+    implementation(libs.picasso)
     implementation(libs.androidx.appcompat)
-
-
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
