@@ -1,14 +1,19 @@
 package com.example.apiavatart2.ui.theme
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import com.example.apiavatart2.databinding.ActivityDetailBinding
 import com.squareup.picasso.Picasso
+import com.example.apiavatart2.data.remote.model.AvatarDto
+import com.example.apiavatart2.data.remote.AvatarApi
+import com.example.apiavatart2.data.remote.AvatarAdapter
 
 class DetailActivity : ComponentActivity() {
 
     private lateinit var binding: ActivityDetailBinding
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailBinding.inflate(layoutInflater)
@@ -26,16 +31,17 @@ class DetailActivity : ComponentActivity() {
         val allies = intent.getStringArrayListExtra("allies")
         val enemies = intent.getStringArrayListExtra("enemies")
 
-        binding.textViewName.text = name
-        binding.textViewAffiliation.text = affiliation
-        binding.textViewGender.text = "Gender: $gender"
-        binding.textViewHair.text = "Hair: $hair"
-        binding.textViewWeapon.text = "Weapon: $weapon"
-        binding.textViewProfession.text = "Profession: $profession"
-        binding.textViewPosition.text = "Position: $position"
-        binding.textViewFirst.text = "First Appearance: $first"
-        binding.textViewAllies.text = "Allies: ${allies?.joinToString(", ")}"
-        binding.textViewEnemies.text = "Enemies: ${enemies?.joinToString(", ")}"
+        binding.textViewName.text = name ?: "Nombre no disponible"
+        binding.textViewAffiliation.text = affiliation ?: "Afiliación no disponible"
+        binding.textViewGender.text = gender?.let { "Género: $it" } ?: "Género no disponible"
+        binding.textViewHair.text = hair?.let { "Cabello: $it" } ?: "Cabello no disponible"
+        binding.textViewWeapon.text = weapon?.let { "Arma: $it" } ?: "Arma no disponible"
+        binding.textViewProfession.text = profession?.let { "Profesión: $it" } ?: "Profesión no disponible"
+        binding.textViewPosition.text = position?.let { "Posición: $it" } ?: "Posición no disponible"
+        binding.textViewFirst.text = first?.let { "Primera aparición: $it" } ?: "Primera aparición no disponible"
+        binding.textViewAllies.text = allies?.let { "Aliados: ${it.joinToString(", ")}" } ?: "Aliados no disponibles"
+        binding.textViewEnemies.text = enemies?.let { "Enemigos: ${it.joinToString(", ")}" } ?: "Enemigos no disponibles"
+
 
         Picasso.get().load(photoUrl).into(binding.imageViewAvatar)
     }
