@@ -1,6 +1,7 @@
 package com.example.apiavatart2.ui.theme
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -40,12 +41,16 @@ class MainActivity : ComponentActivity() {
                     Toast.makeText(
                         this@MainActivity,
                         "Conectado!", Toast.LENGTH_SHORT).show()
+
+                    // Agrega este código para imprimir la respuesta de la API
+                    Log.d("API Response", "Response: $avatars")
                 } else {
                     Toast.makeText(
                         this@MainActivity,
                         "Error en la respuesta!", Toast.LENGTH_SHORT).show()
                 }
             }
+
 
             override fun onFailure(p0: Call<List<AvatarDto>>, p1: Throwable) {
                 Toast.makeText(

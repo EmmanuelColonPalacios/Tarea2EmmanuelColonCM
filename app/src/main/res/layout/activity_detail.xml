@@ -2,7 +2,8 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@drawable/gradient_background">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,71 +22,84 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            android:textSize="22sp"
-            android:layout_marginTop="16dp"/>
+            android:textSize="26sp"
+            android:layout_marginTop="16dp"
+            android:layout_gravity="center"/>
 
         <TextView
             android:id="@+id/textViewAffiliation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:layout_marginTop="8dp"/>
+            android:textSize="24sp"
+            android:layout_marginTop="8dp"
+            android:layout_gravity="center"/>
 
-        <TextView
-            android:id="@+id/textViewGender"
-            android:layout_width="wrap_content"
+        <!-- Contenedor de datos en un cuadro redondeado -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:layout_marginTop="8dp"/>
+            android:orientation="vertical"
+            android:background="@drawable/bg_item_blur"
+            android:padding="16dp"
+            android:layout_marginTop="16dp">
 
-        <TextView
-            android:id="@+id/textViewHair"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:layout_marginTop="8dp"/>
+            <TextView
+                android:id="@+id/textViewGender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:layout_marginTop="8dp"/>
 
-        <TextView
-            android:id="@+id/textViewWeapon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:layout_marginTop="8dp"/>
+            <TextView
+                android:id="@+id/textViewHair"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:layout_marginTop="8dp"/>
 
-        <TextView
-            android:id="@+id/textViewProfession"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:layout_marginTop="8dp"/>
+            <TextView
+                android:id="@+id/textViewWeapon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:layout_marginTop="8dp"/>
 
-        <TextView
-            android:id="@+id/textViewPosition"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:layout_marginTop="8dp"/>
+            <TextView
+                android:id="@+id/textViewProfession"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:layout_marginTop="8dp"/>
 
-        <TextView
-            android:id="@+id/textViewFirst"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:layout_marginTop="8dp"/>
+            <TextView
+                android:id="@+id/textViewPosition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:layout_marginTop="8dp"/>
 
-        <TextView
-            android:id="@+id/textViewAllies"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:layout_marginTop="8dp"/>
+            <TextView
+                android:id="@+id/textViewFirst"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:layout_marginTop="8dp"/>
 
-        <TextView
-            android:id="@+id/textViewEnemies"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:layout_marginTop="8dp"/>
+            <TextView
+                android:id="@+id/textViewAllies"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:layout_marginTop="8dp"/>
+
+            <TextView
+                android:id="@+id/textViewEnemies"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:layout_marginTop="8dp"/>
+
+        </LinearLayout>
 
     </LinearLayout>
 

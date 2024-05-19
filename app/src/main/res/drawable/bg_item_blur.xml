@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- res/drawable/bg_item_blur.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#B3ffffff"/> <!-- Color de fondo con opacidad -->
+    <corners android:radius="26dp"/> <!-- Esquinas redondeadas -->
+</shape>
