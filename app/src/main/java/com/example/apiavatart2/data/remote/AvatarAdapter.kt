@@ -39,6 +39,7 @@ class AvatarAdapter(private val avatars: List<AvatarDto>) : RecyclerView.Adapter
             itemView.setOnClickListener {
                 val context = itemView.context
                 val intent = Intent(context, DetailActivity::class.java).apply {
+                    putExtra("id", avatar.id)  // Asegúrate de pasar el ID aquí
                     putExtra("name", avatar.name)
                     putExtra("photoUrl", avatar.photoUrl)
                     putExtra("affiliation", avatar.affiliation)

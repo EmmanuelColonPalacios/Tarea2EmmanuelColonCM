@@ -2,6 +2,7 @@ package com.example.apiavatart2.ui.theme
 
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,6 +20,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class MainActivity : ComponentActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var avatarApi: AvatarApi
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,36 +32,36 @@ class MainActivity : ComponentActivity() {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
-        val avatarApi = retrofit.create(AvatarApi::class.java)
+        avatarApi = retrofit.create(AvatarApi::class.java)
 
+        binding.buttonRetryMain.setOnClickListener {
+            fetchCharacters()
+        }
+
+        fetchCharacters()
+    }
+
+    private fun fetchCharacters() {
+        binding.buttonRetryMain.visibility = View.GONE
         val call: Call<List<AvatarDto>> = avatarApi.getCharacters()
         call.enqueue(object: Callback<List<AvatarDto>> {
-            override fun onResponse(p0: Call<List<AvatarDto>>, p1: Response<List<AvatarDto>>) {
-                if (p1.isSuccessful) {
-                    val avatars = p1.body() ?: emptyList()
+            override fun onResponse(call: Call<List<AvatarDto>>, response: Response<List<AvatarDto>>) {
+                if (response.isSuccessful) {
+                    val avatars = response.body() ?: emptyList()
                     setupRecyclerView(avatars)
-                    Toast.makeText(
-                        this@MainActivity,
-                        "Conectado!", Toast.LENGTH_SHORT).show()
-
-                    // Agrega este código para imprimir la respuesta de la API
+                    Toast.makeText(this@MainActivity, "Conectado!", Toast.LENGTH_SHORT).show()
                     Log.d("API Response", "Response: $avatars")
                 } else {
-                    Toast.makeText(
-                        this@MainActivity,
-                        "Error en la respuesta!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@MainActivity, "Error en la respuesta!", Toast.LENGTH_SHORT).show()
+                    binding.buttonRetryMain.visibility = View.VISIBLE
                 }
             }
 
-
-            override fun onFailure(p0: Call<List<AvatarDto>>, p1: Throwable) {
-                Toast.makeText(
-                    this@MainActivity,
-                    "No hay conexión disponible!", Toast.LENGTH_SHORT).show()
+            override fun onFailure(call: Call<List<AvatarDto>>, t: Throwable) {
+                Toast.makeText(this@MainActivity, "No hay conexión disponible!", Toast.LENGTH_SHORT).show()
+                binding.buttonRetryMain.visibility = View.VISIBLE
             }
-
         })
-
     }
 
     private fun setupRecyclerView(avatars: List<AvatarDto>) {

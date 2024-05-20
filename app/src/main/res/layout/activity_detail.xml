@@ -101,6 +101,16 @@
 
         </LinearLayout>
 
+        <!-- Botón de reintento por desconexión -->
+        <Button
+            android:id="@+id/buttonRetryDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/reintentar"
+            android:visibility="visible"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"/>
+
     </LinearLayout>
 
 </ScrollView>
